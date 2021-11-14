@@ -1,0 +1,15 @@
+{
+  "name": "Panopto Caption Downloader",
+  "action": {},
+  "manifest_version": 3,
+  "version": "0.1",
+  "description": "Downloads the captions for a panopto video.",
+  "author": "Maryann Foley",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
