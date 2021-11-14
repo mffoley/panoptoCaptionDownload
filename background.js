@@ -4,10 +4,30 @@ function download() {
   var element = document.createElement('a');
 
   var captionsstr = '';
+  var currentSentence = '';
+  var punctuation = -1;
+  var maxCaptionLen = 0;
 
   for (var i = 0; i < captions.length; i++) {
     if (captions[i].getElementsByClassName('index-event-row').length > 0) {
-      captionsstr += captions[i].getElementsByClassName('index-event-row')[0].getElementsByClassName('event-text')[0].getElementsByTagName('span')[0].innerText+'\n\n';
+      currentcaption = captions[i].getElementsByClassName('index-event-row')[0].getElementsByClassName('event-text')[0].getElementsByTagName('span')[0].innerText;
+      if (currentcaption.length > maxCaptionLen){
+        maxCaptionLen = currentcaption.length;
+      }
+      punctuation = Math.max(currentcaption.indexOf("."), currentcaption.indexOf("?"), currentcaption.indexOf("!"));
+      if (punctuation>0 && currentSentence.length > 40){
+        captionsstr += currentSentence + currentcaption.substring(0,punctuation+1) + '\n\n';
+        if (punctuation+2 < currentcaption.length){
+          currentSentence = currentcaption.substring(punctuation+2) + " ";
+        }
+        else{
+          currentSentence = "";
+        }
+
+      }
+      else {
+        currentSentence += currentcaption + " ";
+      }
     }
   }
 
