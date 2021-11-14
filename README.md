@@ -1,4 +1,4 @@
-# panoptoCaptionDownload
+# Panopto Caption Download
 
 Chrome extension to download the captions for panopto lectures; since you have to use chrome to open the videos might as well get some benefit from it.
 
