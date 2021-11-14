@@ -9,6 +9,9 @@
     "activeTab",
     "scripting"
   ],
+  "icons": {
+           "48": "48.png",
+          "128": "128.png" },
   "background": {
     "service_worker": "background.js"
   }
