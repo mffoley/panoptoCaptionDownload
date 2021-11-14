@@ -15,7 +15,7 @@ function download() {
         maxCaptionLen = currentcaption.length;
       }
       punctuation = Math.max(currentcaption.indexOf("."), currentcaption.indexOf("?"), currentcaption.indexOf("!"));
-      if (punctuation>0 && currentSentence.length > 40){
+      if (punctuation>0 && currentSentence.length > 40 && (currentSentence.charAt(punctuation+1) == " " || currentSentence.charAt(punctuation+1) == "")){
         captionsstr += currentSentence + currentcaption.substring(0,punctuation+1) + '\n\n';
         if (punctuation+2 < currentcaption.length){
           currentSentence = currentcaption.substring(punctuation+2) + " ";
